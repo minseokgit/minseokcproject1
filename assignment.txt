@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define MAX_LEN 20
+
+int main() {
+    char *animals[] = {"사자", "호랑이", "코끼리", "기린", "판다", "원숭이", "토끼"};
+    int num_animals = sizeof(animals) / sizeof(animals[0]);
+    int num, guess;
+    char input[MAX_LEN];
+    srand(time(NULL)); 
+
+    num = rand() % num_animals;
+    printf("7가지 동물 중 하나를 선택하였습니다. 맞춰보세요!\n");
+
+    while (1) {
+        printf("동물 이름을 입력하세요: ");
+        scanf("%s", input);
+
+        if (strcmp(input, animals[num]) == 0) {
+            printf("축하합니다! 정답입니다.\n");
+            break;
+        }
+        else {
+            printf("틀렸습니다. 다시 시도해보세요.\n");
+        }
+    }
+
+    return 0;
+}
